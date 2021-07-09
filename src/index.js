@@ -3,7 +3,9 @@ const path = require('path');
 
 const app = express();
 
-app.get('/', function (req, res) {
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', function (_req, res) {
   const htmlPath = path.join(__dirname, 'public', 'index.html');
   res.sendFile(htmlPath);
 });
